@@ -1,0 +1,65 @@
+#include<iostream>
+using namespace std;
+
+
+void swap(int *a, int *b){
+
+	int temp = *a;
+	*a = *b;
+	b* = temp;
+	
+}
+
+void QuickSort(int arr[], int l, int r){
+	
+	if (l < r){
+	
+		return;
+	
+	}
+	
+	else{
+	
+		int pivot = 0;
+		int tbi = l;
+		int tsi = r;
+		
+		while ( r > l){
+		
+			while(arr[pivot] > arr[tbi]){
+			
+				tbi++;
+			
+			}
+			
+			while(arr[pivot] < arr[tsi]){
+			
+				tsi--;
+			
+			}
+			
+			if(r > l){
+			
+				swap(arr[tbi], arr[tsi]);
+				tbi++;
+				tsi--;
+			
+			}
+				
+			
+		}
+		
+		if(l < tsi){
+		
+			QuickSort(arr[],l,tsi);
+		
+		}
+		if(r > tbi){
+		
+			QuickSort(arr[],tbi,r);
+		
+		}
+	
+	}
+	
+}
